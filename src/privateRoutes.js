@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 
 import {
   Route,
@@ -15,16 +15,22 @@ function PrivateRouter() {
   const loggedin = localStorage.getItem("loggedin");
   return (
     <>
-      <Grid container justify="flex-end">
-        <Button
-          onClick={() => {
-            localStorage.removeItem("loggedin");
-            window.location.href = "/login";
-          }}
-        >
-          Logout
-        </Button>
-      </Grid>
+      <AppBar position="static">
+        <Toolbar>
+          <Grid container justify="space-between">
+            <Typography variant="h6">Lens Project</Typography>
+            <Button
+              color="inherit"
+              onClick={() => {
+                localStorage.removeItem("loggedin");
+                window.location.href = "/login";
+              }}
+            >
+              Logout
+            </Button>
+          </Grid>
+        </Toolbar>
+      </AppBar>
       <Grid
         container
         style={{ marginTop: "120px" }}
